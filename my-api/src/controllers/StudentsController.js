@@ -1,8 +1,5 @@
 const StudentsModel=require('../models/StudentsModel')
 
-
-// CRUD
-
 // C=Create
 exports.InsertStudent=(req,res)=>{
    let reqBody= req.body;
@@ -32,7 +29,6 @@ exports.ReadStudent=(req,res)=>{
 
 
 // U=Update
-
 exports.UpdateStudent=(req,res)=>{
     let id=req.params.id;
     let QUERY={_id:id}
@@ -48,6 +44,8 @@ exports.UpdateStudent=(req,res)=>{
 }
 
 
+
+// D=Delete
 exports.DeleteStudent=(req,res)=>{
     let id=req.params.id;
     let QUERY={_id:id}
