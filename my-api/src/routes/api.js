@@ -1,20 +1,28 @@
 const express=require('express');
 const StudentsController = require("../controllers/StudentsController");
+const TokenIssueController = require("../controllers/TokenIssueController");
 const JWTPractice = require("../controllers/JWTPractice");
+const TokenVerifyMiddleware = require("../middleware/TokenVerifyMiddleware");
+
+
 
 const router=  express.Router();
-router.post("/InsertStudent",StudentsController.InsertStudent)
-router.get("/ReadStudent",StudentsController.ReadStudent)
-router.post("/UpdateStudent/:id",StudentsController.UpdateStudent)
-router.get("/DeleteStudent/:id",StudentsController.DeleteStudent)
+
+
+// Apply JWT Auth
+router.get("/TokenIssue",TokenIssueController.TokenIssue)
+router.post("/InsertStudent",TokenVerifyMiddleware,StudentsController.InsertStudent)
+router.get("/ReadStudent",TokenVerifyMiddleware,StudentsController.ReadStudent)
+router.post("/UpdateStudent/:id",TokenVerifyMiddleware,StudentsController.UpdateStudent)
+router.get("/DeleteStudent/:id",TokenVerifyMiddleware,StudentsController.DeleteStudent)
 
 
 
-// Create JWT TOken
+// Practice JWT Encode Decode
 router.get("/CreateToken",JWTPractice.CreateToken)
-
-// Decode JWT TOken
 router.get("/DecodeToken",JWTPractice.DecodeToken)
+
+
 
 
 
