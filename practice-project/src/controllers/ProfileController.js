@@ -1,7 +1,6 @@
 const ProfileModel = require("../models/ProfileModel");
 var jwt = require('jsonwebtoken');
 
-
 exports.CreateProfile=(req,res)=>{
     let reqBody=req.body;
     ProfileModel.create(reqBody,(err,data)=>{
@@ -39,7 +38,6 @@ exports.UserLogin=(req,res)=>{
 
 }
 
-
 exports.SelectProfile=(req,res)=>{
     let UserName=req.headers['username']
     ProfileModel.find({UserName:UserName},(err,data)=>{
@@ -51,8 +49,6 @@ exports.SelectProfile=(req,res)=>{
         }
     })
 }
-
-
 
 exports.UpdateProfile=(req,res)=>{
     let UserName=req.headers['username']

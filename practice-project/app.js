@@ -32,8 +32,8 @@ app.use(limiter)
 
 
 // Mongo DB Database Connection
-let URI="mongodb://127.0.0.1:27017/Todo";
-let OPTION={user:'',pass:'',autoIndex:true}
+let URI="mongodb+srv://rup774827:rup774827@cluster0.7uslu.mongodb.net/ecom_gadget?retryWrites=true&w=majority";
+let OPTION={autoIndex:true}
 mongoose.connect(URI,OPTION,(error)=>{
     console.log("Connection Success")
     console.log(error)
