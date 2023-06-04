@@ -11,6 +11,7 @@ const mongoSanitize = require("express-mongo-sanitize");
 const xss = require("xss-clean");
 const cors = require("cors");
 const hpp = require("hpp");
+const mongoose = require("mongoose");
 
 //security middleware implementation
 app.use(cors());
@@ -27,8 +28,26 @@ const limiter = rateLimit({
 //use limiter
 app.use(limiter);
 
-//version control
-app.use("/api/v1", router);
+//mongodb database connection
+const URI = "mongodb://127.0.0.1:27017/practice1";
+const options = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  user: "",
+  pass: "",
+};
+
+mongoose
+  .connect(URI, options)
+  .then(() => {
+    console.log("Successfully connected to MongoDB");
+  })
+  .catch((error) => {
+    console.error("Error connecting to MongoDB:", error);
+  });
+
+//routing
+mongodb: app.use("/api/v1", router);
 
 //undefined route
 app.use("*", (req, res) => {
