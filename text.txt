@@ -1,0 +1,25 @@
+1.
+
+jason package > npm init --y
+express > npm install express
+body-parser > npm install body-parser
+cookie-parser > npm install cookie-parser
+multer > npm install --save multer
+jsonwebtoken > npm install jsonwebtoken
+mysql > npm install mysql
+mongoose > npm install mongoose
+dotenv > npm install dotenv --save
+nodemon > npm install -g nodemon
+cors > npm install cors
+express-mongo-sanitize > npm i express-mongo-sanitize
+Express Rate Limit > npm i express-rate-limit
+Helmet > npm i helmet
+HPP > npm i hpp
+xss-clean > npm install xss-clean --save
+mongo-sanitize > npm i mongo-sanitize
+
+
+2. Controller >> Route >> app.js >> index.js >>
+
+
+3. config.env > secrets
