@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 
 //schema
 const DataSchema = mongoose.Schema({
-  name: String,
-  id: String,
-  email: String,
-  cgpa: String,
+  Mame: String,
+  ID: String,
+  Email: String,
+  CGPA: String,
 });
 
 //create and export

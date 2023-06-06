@@ -48,12 +48,13 @@ mongoose
   });
 
 //routing
-//mongodb: app.use("/api/v1", router);
+mongodb: app.use("/api/v1", router);
 
 //undefined route
-app.use("*", (req, res) => {
-  res.status(404).json({ status: "Fail", data: "not found" });
-});
+//app.use("*", (req, res) => {
+// res.status(404).json(
+//{ status: "Fail", data: "not found" });
+//});
 
 //export app
 module.exports = app;
