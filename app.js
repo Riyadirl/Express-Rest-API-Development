@@ -48,7 +48,7 @@ mongoose
   });
 
 //routing
-mongodb: app.use("/api/v1", router);
+//mongodb: app.use("/api/v1", router);
 
 //undefined route
 app.use("*", (req, res) => {

@@ -1,7 +1,5 @@
 //Mongoose create data using model
-//crud create
-
-//create
+//crud
 const StudenetModel = require("../models/studentModel");
 exports.InsertStudent = (req, res) => {
   let reqBody = req.body;
