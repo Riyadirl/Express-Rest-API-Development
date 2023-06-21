@@ -1,16 +1,18 @@
 const mongoose = require("mongoose");
-
+const { ObjectId } = mongoose.Schema;
 //schema
 const DataSchema = mongoose.Schema({
   Name: String,
   ID: String,
   Email: String,
   CGPA: String,
-});
+},
+  { timestamps: true, versionKey: false }
+);
 
 //create 
-const StudenetsModel = mongoose.model("students", DataSchema);
+const studentsModel = mongoose.model("students0", DataSchema);
 
 
 //export
-module.exports = StudenetsModel;
+module.exports = studentsModel;

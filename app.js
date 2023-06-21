@@ -1,7 +1,7 @@
 // app.js manage all configuration
 
 const express = require("express");
-const router = require("../Express-Rest-API/src/routes/api");
+const router = require("./src/routes/api");
 const app = express();
 
 //security middleware import
@@ -16,11 +16,10 @@ const mongoose = require("mongoose");
 
 //security middleware implementation
 app.use(cors());
-app.use(helmet());
-app.use(mongoSanitize());
-app.use(xss());
-app.use(hpp());
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(helmet())
 
 // JSON Parser
 app.use(bodyParser.json())
@@ -39,7 +38,8 @@ const limiter = rateLimit({
 app.use(limiter);
 
 //mongodb database connection
-const URI = "mongodb+srv://practice002:practice002@practice002.q7fqa2z.mongodb.net/";
+
+const URI = "mongodb+srv://<username>:<password>@practice002.q7fqa2z.mongodb.net/mern";
 const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -55,6 +55,27 @@ mongoose
   .catch((error) => {
     console.error("Error connecting to MongoDB:", error);
   });
+
+
+
+/*
+// server
+const port = process.env.PORT || 5000;
+
+// Connect to DB and start server
+mongoose
+ .connect(process.env.DATABASE)
+ .then(() => {
+   app.listen(port, () => {
+     console.log(`Server Running on port ${port}`);
+   });
+ })
+ .catch((err) => console.log(err));
+
+
+
+*/
+
 
 //routing
 mongodb: app.use("/api/v1", router);
