@@ -26,6 +26,7 @@ const limiter = rateLimit({
   max: 100, //limit each ip to 100 requests per window
 });
 
+
 //use limiter
 app.use(limiter);
 
