@@ -13,12 +13,12 @@ router.get("/hello-get", controller.Hello); //export from controller
 //router.get("/hello-post", controller.Hello);
 
 //mongose
-router.post("/insertStudent1", sController.InsertStudent);
+router.post("/insertStudent", sController.InsertStudent);
 
 router.post('/departments', deptController.insertDept);
 
 
-
+router.get('/readDept', deptController.readDept)
 
 //export router
 module.exports = router;

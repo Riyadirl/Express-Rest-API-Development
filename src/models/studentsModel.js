@@ -11,8 +11,7 @@ const DataSchema = mongoose.Schema({
 );
 
 //create 
-const studentsModel = mongoose.model("students0", DataSchema);
+const studentsModel = mongoose.model("students", DataSchema);
 
 
 //export
-module.exports = studentsModel;

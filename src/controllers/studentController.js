@@ -6,7 +6,7 @@ exports.InsertStudent = (req, res) => {
   let reqBody = req.body;
 
   studentsModel
-    .create(data)
+    .create(reqBody)
     .then(() => {
       res.send({
         kq: 1,
