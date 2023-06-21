@@ -2,12 +2,15 @@ const mongoose = require("mongoose");
 
 //schema
 const DataSchema = mongoose.Schema({
-  Mame: String,
+  Name: String,
   ID: String,
   Email: String,
   CGPA: String,
 });
 
-//create and export
-const StudenetModel = mongoose.model("student", DataSchema);
-module.exports = StudenetModel;
+//create 
+const StudenetsModel = mongoose.model("students", DataSchema);
+
+
+//export
+module.exports = StudenetsModel;

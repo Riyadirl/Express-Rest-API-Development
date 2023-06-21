@@ -1,10 +1,10 @@
 //Mongoose create data using model
 //crud
-const StudenetModel = require("../models/studentModel");
+const StudenetsModel = require("../models/studentsModel");
 exports.InsertStudent = (req, res) => {
   let reqBody = req.body;
 
-  StudenetModel.create(reqBody, (err, data) => {
+  StudenetsModel.create(reqBody, (err, data) => {
     if (err) {
       res.status(400).json({ status: "fail", data: err });
     } else {

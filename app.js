@@ -1,10 +1,11 @@
 // app.js manage all configuration
 
 const express = require("express");
-const router = require("../Express-Rest-API/src/routes/route");
+const router = require("../Express-Rest-API/src/routes/api");
 const app = express();
 
 //security middleware import
+const bodyParser = require('body-parser');
 const rateLimit = require("express-mongo-sanitize");
 const helmet = require("helmet");
 const mongoSanitize = require("express-mongo-sanitize");
@@ -20,7 +21,14 @@ app.use(mongoSanitize());
 app.use(xss());
 app.use(hpp());
 
+
+// JSON Parser
+app.use(bodyParser.json())
+
+
+
 //requesting rate limit
+
 const limiter = rateLimit({
   windowMs: 15 * 1000, //15 minutes
   max: 100, //limit each ip to 100 requests per window
@@ -31,12 +39,12 @@ const limiter = rateLimit({
 app.use(limiter);
 
 //mongodb database connection
-const URI = "mongodb://127.0.0.1:27017/practice1";
+const URI = "mongodb+srv://practice002:practice002@practice002.q7fqa2z.mongodb.net/";
 const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  user: "",
-  pass: "",
+  user: "practice002",
+  pass: "practice002",
 };
 
 mongoose
