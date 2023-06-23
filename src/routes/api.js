@@ -16,9 +16,11 @@ router.get("/hello-get", controller.Hello); //export from controller
 router.post("/insertStudent", sController.InsertStudent);
 
 router.post('/departments', deptController.insertDept);
-
-
 router.get('/readDept', deptController.readDept)
+router.post('/updateDept/:id', deptController.updateDept);
+
+
+
 
 //export router
 module.exports = router;

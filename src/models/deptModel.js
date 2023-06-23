@@ -12,3 +12,7 @@ const deptSchema = new mongoose.Schema({
 const DeptModel = mongoose.model('depts', deptSchema);
 
 module.exports = DeptModel;
+
+
+
+

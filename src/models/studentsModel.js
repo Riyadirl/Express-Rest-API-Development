@@ -15,3 +15,9 @@ const studentsModel = mongoose.model("students", DataSchema);
 
 
 //export
+module.exports = studentsModel;
+/*
+"Name" : "Mahbub",
+"ID" : "98563",
+"Email" : "iug@gmail.com",
+"CGPA" : "3.33"*/
