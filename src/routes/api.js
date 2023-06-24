@@ -18,7 +18,7 @@ router.post("/insertStudent", sController.InsertStudent);
 router.post('/departments', deptController.insertDept);
 router.get('/readDept', deptController.readDept)
 router.post('/updateDept/:id', deptController.updateDept);
-
+router.get('/deleteDept/:id', deptController.deleteDept);
 
 
 

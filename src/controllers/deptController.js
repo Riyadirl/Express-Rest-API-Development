@@ -50,7 +50,7 @@ exports.readDept = (req, res) => {
 };
 
 
-// Update Department
+// U - UPDATE
 
 
 exports.updateDept = (req, res) => {
@@ -72,4 +72,48 @@ exports.updateDept = (req, res) => {
             }
         }
     });
+};
+
+
+
+// D - DELETE
+/*
+exports.deleteDept = (req, res) => {
+    let id = req.params.id;
+    let query = { _id: id };
+
+
+    DeptModel.deleteOne(query, (err, data) => {
+        if (err) {
+            // Handle error
+            res.status(500).json({ error: "An error occurred while deleting the department." });
+        } else {
+            if (data.deletedCount === 0) {
+                // No documents matched the query criteria
+                res.status(404).json({ message: "Department not found." });
+            } else {
+                // Deletion successful
+                res.status(200).json({ message: "Department deleted successfully." });
+            }
+        }
+    });
+};
+*/
+
+
+exports.deleteDept = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const query = { _id: id };
+
+        const result = await DeptModel.deleteOne(query);
+
+        if (result.deletedCount === 0) {
+            return res.status(404).json({ message: "Department not found." });
+        }
+
+        res.status(200).json({ message: "Department deleted successfully." });
+    } catch (error) {
+        res.status(500).json({ error: "An error occurred while deleting the department." });
+    }
 };
