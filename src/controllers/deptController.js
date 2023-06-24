@@ -58,20 +58,20 @@ exports.updateDept = (req, res) => {
     let query = { _id: id };
     let updateData = req.body;
 
-    DeptModel.updateOne(query, updateData, (err, data) => {
-        if (err) {
-            // Handle error
-            res.status(500).json({ error: "An error occurred while updating the department." });
-        } else {
-            if (data.nModified === 0) {
+    DeptModel.updateOne(query, updateData)
+        .then((result) => {
+            if (result.nModified === 0) {
                 // No documents matched the query criteria
                 res.status(404).json({ message: "Department not found." });
             } else {
                 // Update successful
                 res.status(200).json({ message: "Department updated successfully." });
             }
-        }
-    });
+        })
+        .catch((err) => {
+            // Handle error
+            res.status(500).json({ error: "An error occurred while updating the department." });
+        });
 };
 
 
