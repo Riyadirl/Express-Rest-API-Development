@@ -17,6 +17,7 @@ Helmet > npm i helmet
 HPP > npm i hpp
 xss-clean > npm install xss-clean --save
 mongo-sanitize > npm i mongo-sanitize
+jwt token > npm install jsonwebtoken
 
 
 2. Controller >> Route >> app.js >> index.js >>

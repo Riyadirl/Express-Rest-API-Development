@@ -268,3 +268,52 @@ const UserModel = mongoose.model('User', userSchema);
 module.exports = UserModel;
 
 
+
+//JWT Token 
+const jwt = require('jsonwebtoken');
+const secretKey = 'yourSecretKey';
+
+// Function to generate a JWT token
+function generateToken(payload) {
+    // Generate the token with the payload and secret key
+    const token = jwt.sign(payload, secretKey, { expiresIn: '1h' });
+
+    // Return the generated token
+    return token;
+}
+
+// Function to verify a JWT token
+function verifyToken(token) {
+    try {
+        // Verify the token using the secret key
+        const decoded = jwt.verify(token, secretKey);
+
+        // Return the decoded payload
+        return decoded;
+    } catch (error) {
+        // If the token is invalid or has expired, an error will be thrown
+        // Handle the error accordingly (e.g., log the error, return an error response)
+
+        // For example, if the token has expired
+        if (error.name === 'TokenExpiredError') {
+            throw new Error('Token has expired');
+        }
+
+        throw new Error('Invalid token');
+    }
+}
+
+// Example usage:
+
+// Generate a token for a user
+const userPayload = { id: '123', username: 'john.doe' };
+const token = generateToken(userPayload);
+console.log('Generated Token:', token);
+
+// Verify the token
+try {
+    const decodedPayload = verifyToken(token);
+    console.log('Decoded Payload:', decodedPayload);
+} catch (error) {
+    console.error('Token Verification Error:', error.message);
+}
