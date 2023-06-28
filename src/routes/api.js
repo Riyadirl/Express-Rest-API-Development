@@ -13,6 +13,7 @@ router.get("/hello-get", controller.Hello); //export from controller
 //router.get("/hello-post", controller.Hello);
 
 //mongose
+//apply jwt auth
 router.post("/insertStudent", sController.InsertStudent);
 
 router.post('/departments', deptController.insertDept);
@@ -21,7 +22,7 @@ router.post('/updateDept/:id', deptController.updateDept);
 router.get('/deleteDept/:id', deptController.deleteDept);
 
 
-//jwt token
+//practice jwt token
 router.get('/createToken', JWTPractice.createToken);
 router.get('/decodeToken', JWTPractice.decodeToken);
 
